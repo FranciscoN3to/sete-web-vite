@@ -1,0 +1,32 @@
+import React from "react";
+
+import { ReactHookNavCardProvider, ReactHookNavCardTab } from "../../../../contexts/ReactHookNavCard";
+
+import PageTitle from "../../../../components/micro/PageTitle";
+
+import ImportarRotasIcon from "assets/icons/rotas/rotas-importar.png";
+import ImportarGpxIcon from "assets/icons/rotas/rotas-importargpx.png";
+import PreviewRotaIcon from "assets/icons/rotas/rotas-preview.png";
+import SalvarRotaIcon from "assets/icons/rotas/rotas-salvar.png";
+
+import Configuracao from "./Configuracao";
+import RotasGeradas from "./RotasGeradas";
+
+const MalhaViaria: React.FC = () => {
+    //const handleSubmit = async (data) => {};
+    return (
+        <>
+            <PageTitle message="Malha Viária" icon={ImportarRotasIcon} />
+            <ReactHookNavCardProvider onSubmit={(data) => console.log(data)}>
+                <ReactHookNavCardTab name="Malha Atual" icon={<img src={ImportarGpxIcon} alt="" />}>
+                    <Configuracao />
+                </ReactHookNavCardTab>
+                <ReactHookNavCardTab name="Atualizar Malha" icon={<img src={PreviewRotaIcon} alt="" />}>
+                    <RotasGeradas />
+                </ReactHookNavCardTab>
+            </ReactHookNavCardProvider>
+        </>
+    );
+};
+
+export default MalhaViaria;
